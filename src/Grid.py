@@ -23,6 +23,8 @@ class Grid:
 
         self.__init__loop()
 
+        self.changed_cells = []
+
 
     def update(self):
         self.__generate_next_step()
@@ -37,10 +39,11 @@ class Grid:
                 config = str(self.cells[i][j].state.value) + self.__get_neighbours(i, j)
                 next_state_value = self.rule_dict.get(config)
                 if next_state_value == None:
-                    print(config)
                     self.next_state[i][j] = self.cells[i][j].state
                 else:
                     self.next_state[i][j] = State(int(next_state_value))
+                    self.changed_cells.append(self.cells[i][j])
+
 
 
     def __set_next_step(self):
@@ -83,26 +86,27 @@ class Grid:
 
     def render(self, screen):
 
-        for i in range(self.size[0]):
-            for j in range(self.size[1]):
-                self.cells[i][j].render(screen)
+        for cell in self.changed_cells:
+            cell.render(screen)
+
+        self.changed_cells.clear()
 
 
     def __init__loop(self):
-        xoffset = 20
-        yoffset = 20
+        xoffset = 50
+        yoffset = 50
 
         langtonLoop = [
             " 22222222",\
-            "2170140142",\
-            "2022222202",\
-            "272    212",\
-            "212    212",\
-            "202    212",\
-            "272    212",\
-            "21222222122222",\
-            "207107107111112",\
-            " 2222222222222"]
+             "2170140142",\
+             "2022222202",\
+             "272    212",\
+             "212    212",\
+             "202    212",\
+             "272    212",\
+             "21222222122222",\
+             "207107107111112",\
+             " 2222222222222"]
 
 
         for i in range(len(langtonLoop)):
@@ -111,5 +115,5 @@ class Grid:
                     index = 0
                 else:
                     index = int(langtonLoop[i][j])
-                self.cells[xoffset + i][yoffset + j].state = State(index)
+                self.cells[xoffset + j][yoffset + i].state = State(index)
 

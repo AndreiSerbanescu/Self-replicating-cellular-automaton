@@ -4,6 +4,24 @@ from src.Cell import *
 from src.Position import *
 from src.Grid import *
 
+
+
+
+def fps_count(fpscount):
+    fpscount += 1
+
+    if fpscount < 9:
+        return "000" + str(fpscount)
+    if fpscount < 99:
+        return "00" + str(fpscount)
+
+    if fpscount < 999:
+        return "0" + str(fpscount)
+
+    return str(fpscount)
+
+
+
 pygame.init()
 
 pygame.display.init()
@@ -22,6 +40,9 @@ is_paused = True
 FPS = settings.FPS
 
 cell = Cell(Position(3, 3))
+fpscount = 0
+
+
 
 while True:
     mousePressed = False
@@ -49,12 +70,17 @@ while True:
     if mousePressed:
         grid.cells[mousePos[0] // settings.CELLSIZE][mousePos[1] // settings.CELLSIZE].set_next_state()
 
-    screen.fill(WHITE)
 
     grid.render(screen)
 
     if not is_paused:
         grid.update()
+
+        fpscount += 1
+
+        if fpscount % 20 == 0:
+            count_string = fps_count(fpscount)
+            #pygame.image.save(screen, "loop.jpg" + count_string)
 
     pygame.display.update()
     fps_clock.tick(FPS)
