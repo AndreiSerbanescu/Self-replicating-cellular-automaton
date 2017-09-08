@@ -93,8 +93,8 @@ class Grid:
 
 
     def __init__loop(self):
-        xoffset = 50
-        yoffset = 50
+        xoffset = settings.COLNO // 2 - 15
+        yoffset = settings.ROWNO // 2 - 15
 
         langtonLoop = [
             " 22222222",\
