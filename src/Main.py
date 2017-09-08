@@ -78,9 +78,9 @@ while True:
 
         fpscount += 1
 
-        if fpscount % 20 == 0:
+        if fpscount % 5 == 0:
             count_string = fps_count(fpscount)
-            #pygame.image.save(screen, "loop.jpg" + count_string)
+            pygame.image.save(screen, "loop.jpg" + count_string)
 
     pygame.display.update()
     fps_clock.tick(FPS)
