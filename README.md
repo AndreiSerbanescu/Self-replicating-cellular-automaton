@@ -2,5 +2,5 @@
 
 
 
-[![Watch the video](https://youtu.be/0AbS0XiSx0Q/0.jpg)](https://youtu.be/0AbS0XiSx0Q)
+[![Watch the video](https://github.com/AndreiSerbanescu/Self-replicating-cellular-automaton/blob/master/images/loop.jpeg)](https://youtu.be/0AbS0XiSx0Q)
 
