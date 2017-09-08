@@ -2,5 +2,5 @@
 
 
 
-[![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://youtu.be/vt5fpE0bzSY)
-https://youtu.be/0AbS0XiSx0Q
+[![Watch the video](https://youtu.be/0AbS0XiSx0Q/0.jpg)](https://youtu.be/0AbS0XiSx0Q)
+
