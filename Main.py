@@ -42,6 +42,7 @@ FPS = settings.FPS
 cell = Cell(Position(3, 3))
 fpscount = 0
 
+take_screenshot = False
 
 
 while True:
@@ -54,6 +55,8 @@ while True:
                 pygame.quit()
             elif event.key == pygame.K_p:
                 is_paused = not is_paused
+            elif event.key == pygame.K_SPACE:
+                take_screenshot = True
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mousePressed = True
@@ -78,9 +81,14 @@ while True:
 
         fpscount += 1
 
-        if fpscount % 5 == 0:
-            count_string = fps_count(fpscount // 5 - 1)
-            pygame.image.save(screen, "loop" + count_string + ".jpg")
+        #if fpscount % 5 == 0:
+        #    count_string = fps_count(fpscount // 5 - 1)
+        #    pygame.image.save(screen, "loop" + count_string + ".jpg")
+
+        if take_screenshot:
+            pygame.image\
+            .save(screen, "screenshot" + fps_count(fpscount)) + ".jpg")
+            take_screenshot = False
 
     pygame.display.update()
     fps_clock.tick(FPS)
