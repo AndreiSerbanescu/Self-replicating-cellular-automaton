@@ -87,7 +87,7 @@ while True:
 
         if take_screenshot:
             pygame.image\
-            .save(screen, "screenshot" + fps_count(fpscount)) + ".jpg")
+            .save(screen, "screenshot" + fps_count(fpscount) + ".jpg")
             take_screenshot = False
 
     pygame.display.update()
